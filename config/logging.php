@@ -89,7 +89,7 @@ return [
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
             'processors' => [PsrLogMessageProcessor::class],
         ],
@@ -126,16 +126,29 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        // 'background_jobs' => [
+        //     'driver' => 'single',
+        //     'path' => storage_path('logs/background_jobs.log'),
+        //     'level' => 'info',
+        // ],
+        // 'background_jobs_errors' => [
+        //     'driver' => 'single',
+        //     'path' => storage_path('logs/background_jobs_errors.log'),
+        //     'level' => 'error',
+        // ],
         'background_jobs' => [
-        'driver' => 'single',
-        'path' => storage_path('logs/background_jobs.log'),
-        'level' => 'info',
-     ],
-    'background_jobs_errors' => [
-        'driver' => 'single',
-        'path' => storage_path('logs/background_jobs_errors.log'),
-        'level' => 'error',
-    ],
+            'driver' => 'daily',
+            'path' => storage_path('logs/background-jobs.log'),
+            'level' => 'debug',
+            'days' => 14,
+        ],
+
+        'background_jobs_errors' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/background-jobs-errors.log'),
+            'level' => 'error',
+            'days' => 14,
+        ],
 
     ],
 

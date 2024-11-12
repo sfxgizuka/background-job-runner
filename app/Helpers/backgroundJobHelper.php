@@ -1,4 +1,4 @@
-// app/Helpers/backgroundJobHelper.php
+<?php
 
 use App\Services\BackgroundJobRunner;
 

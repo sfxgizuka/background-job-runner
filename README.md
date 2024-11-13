@@ -1,13 +1,13 @@
 # Background Job Helper
 
-A Laravel helper function for easily running background jobs with configurable retries.
+A robust Laravel package for managing background jobs with configurable retries, priorities, and monitoring capabilities.
 
 ## Installation
 
 1. Clone the repository:
-```bash
+
 git clone https://github.com/sfxgizuka/background-job-runner.git
-```
+
 
 2. Install PHP dependencies:
 ```bash
@@ -26,12 +26,7 @@ php artisan key:generate
 
 5. Configure database connection in `.env` file
 ```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your_database
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
+DB_CONNECTION=sqlite
 ```
 
 6. Run database migrations:
@@ -71,6 +66,29 @@ runBackgroundJob(
 - $methodName: The method to execute within the class
 - $parameters: Optional array of parameters to pass to the method
 - $retries: Number of retry attempts (defaults to 3)
+
+## Configuration Options
+### Retry Settings
+- retries: Number of retry attempts (default: 3)
+- backoff: Delay between retries in seconds (default: 30)
+- maxExceptions: Maximum allowed exceptions before marking job as failed
+
+### Priority Levels
+- high: Processed first
+- medium: Standard priority
+- low: Processed when queue is clear
+
+### Security
+- Rate limiting
+- Job timeout settings
+- Queue encryption
+
+### Advanced Features
+Job Dashboard
+Access the job monitoring dashboard at / to:
+
+- View job statuses
+- Monitor failed jobs
 
 ## Error Handling
 The BackgroundJobRunner service automatically:

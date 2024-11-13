@@ -75,6 +75,6 @@ runBackgroundJob(
 ## Error Handling
 The BackgroundJobRunner service automatically:
 
-Logs failures to Laravel's logging system
-Implements exponential backoff between retries
-Moves failed jobs to the failed_jobs table after all retries are exhausted
+- Logs failures to Laravel's logging system
+- Implements exponential backoff between retries
+- Moves failed jobs to the failed_jobs table after all retries are exhausted

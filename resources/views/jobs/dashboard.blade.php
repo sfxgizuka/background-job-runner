@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Background Jobs Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta http-equiv="refresh" content="5">
+    <script>
+        function submitAndRefresh() {
+            document.getElementById('jobForm').submit();
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        }
+    </script>
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto p-6">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">Background Jobs Dashboard</h1>
-            <form method="GET" action="/">
+            <form id="jobForm" method="GET" action="/">
                 <input type="hidden" name="run_job" value="1">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                <button type="button" onclick="submitAndRefresh()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                     Run New Job
                 </button>
             </form>

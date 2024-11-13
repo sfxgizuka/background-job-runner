@@ -6,7 +6,7 @@ A Laravel helper function for easily running background jobs with configurable r
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/sfxgizuka/background-job-runner.git
 ```
 
 2. Install PHP dependencies:

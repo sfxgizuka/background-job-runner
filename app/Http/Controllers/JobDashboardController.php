@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\BackgroundJob;
-use Illuminate\Http\Request;
 
 class JobDashboardController extends Controller
 {
